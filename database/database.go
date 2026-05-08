@@ -6,6 +6,7 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"tast-list.com/config"
+	"tast-list.com/models"
 )
 
 var DB *gorm.DB
@@ -27,5 +28,5 @@ func ConnectDB() {
 
 	fmt.Println("Connected to database")
 
-	// DB.AutoMigrate(&models.Product{}, &models.User{}, &models.RefreshToken{})
+	DB.AutoMigrate(&models.Task{}, &models.User{})
 }
